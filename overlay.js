@@ -213,11 +213,11 @@ class Overlay {
 			this._win.setBounds({ x: x + width - 1, y: y, width: 1, height: height }, this._config.animate);
 			break;
 		case 'bottom':
-			this._win.setBounds({ x: x, y: y + height, width: width, height: 0 }, this._config.animate);
+			this._win.setBounds({ x: x, y: y + height, width: Math.round(width * this._config.width), height: 0 }, this._config.animate);
 			break;
 		default:
 		case 'top':
-			this._win.setBounds({ x: x, y: y, width: width, height: 0 }, this._config.animate);
+			this._win.setBounds({ x: x, y: y, width: Math.round(width * this._config.width), height: 0 }, this._config.animate);
 			break;
 		}
 	}
@@ -235,7 +235,7 @@ class Overlay {
 			break;
 		case 'bottom':
 			size = (this._config.size > 1) ? this._config.size : Math.round(height * this._config.size);
-			this._win.setBounds({ x: x, y: y + height - size, width: width, height: size }, this._config.animate);
+			this._win.setBounds({ x: x, y: height - size, width: Math.round(width * this._config.width), height: size }, this._config.animate);
 			break;
 		case 'right':
 			size = (this._config.size > 1) ? this._config.size : Math.round(width * this._config.size);
@@ -244,7 +244,7 @@ class Overlay {
 		default:
 		case 'top':
 			size = (this._config.size > 1) ? this._config.size : Math.round(height * this._config.size);
-			this._win.setBounds({ x: x, y: y, width: width, height: size }, this._config.animate);
+			this._win.setBounds({ x: x, y: y, width: Math.round(width * this._config.width), height: size }, this._config.animate);
 			break;
 		}
 	}
